@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gym Website</title>
+    <link rel="stylesheet" href="./style.css">
+    <!--<link rel="stylesheet" href="./style1.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        .row.service-row {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 30px;
+          padding: 50px 20px;
+          background: #000;
+        }
+      
+        .service-col {
+          width: 300px;
+          background: #111;
+          color: white;
+          border-radius: 15px;
+          overflow: hidden;
+          box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
+          transition: transform 0.4s ease, box-shadow 0.4s ease;
+          animation: fadeInUp 1s ease-in-out;
+        }
+      
+        .service-col:hover {
+          transform: translateY(-8px) scale(1.03);
+          box-shadow: 0 0 25px rgba(255, 215, 0, 0.5);
+        }
+      
+        .service-col img {
+          width: 100%;
+          height: 220px;
+          object-fit: cover;
+          border-bottom: 2px solid #e60000;
+          transition: transform 0.3s ease;
+        }
+      
+        .service-col:hover img {
+          transform: scale(1.05);
+        }
+      
+        .service-col h3 {
+          margin: 15px 0 10px;
+          font-size: 22px;
+          color: gold;
+          font-weight: bold;
+        }
+      
+        .service-col p {
+          font-size: 15px;
+          padding: 0 15px;
+          color: #ccc;
+        }
+      
+        .service-col a {
+          display: inline-block;
+          margin: 15px 0 20px;
+          padding: 8px 18px;
+          background-color: red;
+          color: white;
+          border-radius: 6px;
+          text-decoration: none;
+          transition: background 0.3s;
+        }
+      
+        .service-col a:hover {
+          background-color: #ff1a1a;
+        }
+      
+        /* Fade-in animation */
+        @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(40px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+      
+        /* Responsive */
+        @media (max-width: 768px) {
+          .service-col {
+            width: 90%;
+          }
+        }
+      </style>
+      
+
+</head>
+
+
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="./assets/logo.png" alt="">
+                <h1>GY<span>M</span></h1>
+            </div>
+            <div class="navigation">
+                <i class="fa-solid fa-bars" id="menu-icon" onclick="showmenu()"></i>
+                <ul class="nav-list" onclick="hidemenu()">
+                  <li class="active">
+                    <a href="home.html">
+                      <span class="icon"><i class="fas fa-home"></i></span>
+                      <span class="text">Home</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="about.html">
+                      <span class="icon"><i class="fas fa-user"></i></span>
+                      <span class="text">About</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="services.html">
+                      <span class="icon"><i class="fas fa-concierge-bell"></i></span>
+                      <span class="text">Services</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="gallery.html">
+                      <span class="icon"><i class="fas fa-image"></i></span>
+                      <span class="text">Gallery</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="blogs.html">
+                      <span class="icon"><i class="fas fa-blog"></i></span>
+                      <span class="text">Blog</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="contacts.html">
+                      <span class="icon"><i class="fas fa-envelope"></i></span>
+                      <span class="text">Contact</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="login.html">
+                      <span class="icon"><i class="fas fa-sign-in-alt"></i></span>
+                      <span class="text">Login</span>
+                    </a>
+                  </li>
+                  <div class="indicator"></div>
+                </ul>
+              </div>
+              
+        </nav>
+    </header>
+    <!-- Hero section -->
+    <div class="hero">
+        <div class="container">
+            <div class="content-wrapper">
+                <h3>SHAPE YOUR BODY</h3>
+                <h1>BE <span style="color: #f79361;">STRONG</span> <br> TRAINING HARD</h1>
+                <a href="about.html">
+                    <button style="padding: 14px 28px; background: linear-gradient(to right, #ffcc00, #ff6600); color: #000; border: none; border-radius: 8px; font-weight: 900; letter-spacing: 2px; font-size: 16px; cursor: pointer; box-shadow: 0 4px 10px rgba(255, 165, 0, 0.5); transition: 0.3s all ease;">
+                        GET INFO
+                      </button>
+                      
+                  </a>
+                  
+            </div>
+        </div>
+    </div>
+    <!-- choose us section -->
+    <div class="choose-us">
+        <div class="container">
+            <div class="heading">
+                <h1>WHY YOU SHOULD CHOOSE US ?</h1>
+                <p>We offer expert coaching, cutting-edge equipment, flexible plans, a supportive community, and results-driven programs tailored to your fitness goals.</p>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <img src="./assets/logo.png" alt="">
+                <h3>Modern equipment</h3>
+                <p>Experience high-performance dumbbells, resistance machines, and cable stations that challenge every muscle group.</p>
+            </div>
+            <div class="col">
+                <img src="./assets/healthy-food_1205049.png" alt="">
+                <h3>Healthy nutrition plan</h3>
+                <p>A healthy nutrition plan balances proteins, carbs, fats, and hydration to support fitness and wellness.</p>
+            </div>
+            <div class="col">
+                <img src="./assets/treadmill_10417415.png" alt="">
+                <h3>Quality training</h3>
+                <p>Quality training builds strength, improves endurance, enhances technique, and ensures safe, consistent fitness progress.</p>
+            </div>
+            <div class="col">
+                <img src="./assets/logo.png" alt="">
+                <h3>Affordable Price</h3>
+                <p>Affordable pricing ensures everyone can access quality fitness facilities without compromising on equipment or training support.</p>
+            </div>
+        </div>
+    </div>
+    <!-- Offer section -->
+    <div class="offer">
+        <div class="container">
+            <h1>A BIG OFFER FOR THIS SUMMER</h1>
+            <P>WHERE HEALTH, BEAUTY AND FITNESS MEET</P>
+            <button style="padding: 14px 28px; background: linear-gradient(to right, #ffcc00, #ff6600); color: #000; border: none; border-radius: 8px; font-weight: 900; letter-spacing: 2px; font-size: 16px; cursor: pointer; box-shadow: 0 4px 10px rgba(255, 165, 0, 0.5); transition: 0.3s all ease;">
+                GET STARTED
+              </button>
+              
+              
+        </div>
+    </div>
+    <!-- serice section -->
+    <div class="services choose-us">
+        <div class="container">
+          <div class="heading">
+            <h1>WHAT WE CAN OFFER YOU ?</h1>
+            <p>Expert trainers, modern equipment, personalized plans, nutrition guidance, and motivation.</p>
+          </div>
+          <div class="row service-row" style="display: flex; justify-content: space-around; flex-wrap: wrap; gap: 30px;">
+            <div class="service-col" style="flex: 1 1 300px; max-width: 350px; background: #111; color: white; padding: 20px; border-radius: 12px; text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.6);">
+              <img src="./assets/man-8545861_640.jpg" alt="" style="width: 100%; border-radius: 12px; height: 220px; object-fit: cover;">
+              <h3 style="margin: 20px 0 10px;">Dedicated Fitness</h3>
+              <p style="font-size: 14px; margin-bottom: 20px;">Dedicated fitness means personalized workouts, consistent progress, expert support, and a motivating environment focused on achieving your unique health goals.</p>
+              <a href="readmore1.html">
+              <button style="padding: 14px 28px; background: linear-gradient(to right, #ffcc00, #ff6600); color: #000; border: none; border-radius: 8px; font-weight: 900; letter-spacing: 2px; font-size: 16px; cursor: pointer; box-shadow: 0 4px 10px rgba(255, 165, 0, 0.5); transition: 0.3s all ease;">
+                READ MORE
+              </button>
+            </a>
+            </div>
+      
+            <div class="service-col" style="flex: 1 1 300px; max-width: 350px; background: #111; color: white; padding: 20px; border-radius: 12px; text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.6);">
+              <img src="./assets/body.jpg" alt="" style="width: 100%; border-radius: 12px; height: 220px; object-fit: cover;">
+              <h3 style="margin: 20px 0 10px;">Advanced Body Building</h3>
+              <p style="font-size: 14px; margin-bottom: 20px;">Advanced body building focuses on muscle growth, strength training, tailored nutrition, progressive overload, and expert guidance for peak physique results.</p>
+              <a href="readmore2.html">
+              <button style="padding: 14px 28px; background: linear-gradient(to right, #ffcc00, #ff6600); color: #000; border: none; border-radius: 8px; font-weight: 900; letter-spacing: 2px; font-size: 16px; cursor: pointer; box-shadow: 0 4px 10px rgba(255, 165, 0, 0.5); transition: 0.3s all ease;">
+                READ MORE
+              </button>
+            </a>
+            </div>
+      
+            <div class="service-col" style="flex: 1 1 300px; max-width: 350px; background: #111; color: white; padding: 20px; border-radius: 12px; text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.6);">
+              <img src="./assets/hero.jpg" alt="" style="width: 100%; border-radius: 12px; height: 220px; object-fit: cover;">
+              <h3 style="margin: 20px 0 10px;">Weight Lifting</h3>
+              <p style="font-size: 14px; margin-bottom: 20px;">Weight lifting increases strength, sculpts muscle tone, accelerates metabolism, supports fat loss, improves posture, and enhances fitness under expert supervision.</p>
+              <a href="readmore3.html">
+              <button style="padding: 14px 28px; background: linear-gradient(to right, #ffcc00, #ff6600); color: #000; border: none; border-radius: 8px; font-weight: 900; letter-spacing: 2px; font-size: 16px; cursor: pointer; box-shadow: 0 4px 10px rgba(255, 165, 0, 0.5); transition: 0.3s all ease;">
+                READ MORE
+              </button>
+            </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    <!-- contact section -->
+    <div class="contact-info">
+        <div class="container">
+            <div class="contact-row">
+                <div class="contact-col">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <p>123 Mumbai xyz Rd, NH, India, 422011</p>
+                </div>
+                <div class="contact-col">
+                    <i class="fa-solid fa-mobile-screen"></i>
+                    <p>+91 7020236299</p>
+                </div>
+                <div class="contact-col">
+                    <i class="fa-solid fa-envelope"></i>
+                    <p>musclemandir@gmail.com</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- footer section -->
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer-links">
+                    <div>ABOUT</div>
+                    <ul>
+                        <li><a href="">Welcome to our gym – your ultimate fitness destination! We offer expert training, modern equipment, and personalized programs to help you achieve your health and strength goals.
+</a></li>
+                        <div class="social-links">
+                            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                            <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                        </div>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <div>USEFUL LINKS</div>
+                    <ul>
+                        <li><a href="blogs.html">Blog</a></li>
+                        <li><a href="pricing.html">Pricing</a></li>
+                        <li><a href="#">Classes</a></li>
+                       <!-- <li><a href="services.html">Services</a></li> -->
+                        <li><a href="contacts.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <div>OPEN HOURS</div>
+                    <ul>
+                        <li><a href="#">Mon - Tue 8AM - 6PM</a></li>
+                        <li><a href="#">Wed - Fri 9AM - 8PM</a></li>
+                        <li><a href="#">Saturday - 9AM - 6PM</a></li>
+                        <li><a href="#">Sunday - 11AM - 8PM</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="copyright">
+            <p>Copyright All Right Reserved | Made By Prathamesh Gadekar...</p>
+        </div>
+    </div>
+
+
+    <!-- script -->
+    <script src="./script.js"></script>
+</body>
+</html>

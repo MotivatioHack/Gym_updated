@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Gym Gallery - Card Slider</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #000;
+      color: white;
+      overflow-x: hidden;
+    }
+
+    header {
+      background-color: #c40000;
+      color: gold;
+      text-align: center;
+      padding: 20px;
+      font-size: 30px;
+      font-weight: bold;
+    }
+
+    .gallery-section {
+      max-width: 1200px;
+      margin: 40px auto;
+      position: relative;
+    }
+
+    .card-slider {
+      display: flex;
+      transition: transform 0.6s ease;
+    }
+
+    .gallery-card {
+      flex: 0 0 100%;
+      padding: 20px;
+      box-sizing: border-box;
+      text-align: center;
+      position: relative;
+    }
+
+    .gallery-card img {
+      width: 100%;
+      max-height: 500px;
+      object-fit: cover;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+      transition: transform 0.6s ease;
+    }
+
+    .gallery-card:hover img {
+      transform: scale(1.05);
+    }
+
+    .card-desc {
+      margin-top: 15px;
+      background: rgba(0, 0, 0, 0.7);
+      padding: 10px 20px;
+      border-left: 5px solid gold;
+      font-weight: bold;
+    }
+
+    .arrow-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 30px;
+      color: rgba(255,255,255,0.2);
+      background: none;
+      border: none;
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+
+    .arrow-btn:hover {
+      color: gold;
+    }
+
+    .arrow-left {
+      left: 10px;
+    }
+
+    .arrow-right {
+      right: 10px;
+    }
+
+    .dots {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .dot {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      margin: 5px;
+      border-radius: 50%;
+      background-color: red;
+      transition: background-color 0.3s;
+    }
+
+    .dot.active {
+      background-color: gold;
+    }
+
+    .marquee {
+      font-weight: bold;
+      color: gold;
+      margin: 40px 0 10px 0;
+      font-size: 18px;
+      white-space: nowrap;
+      overflow: hidden;
+      box-sizing: border-box;
+    }
+
+    .marquee span {
+      display: inline-block;
+      padding-left: 100%;
+      animation: marquee 15s linear infinite;
+    }
+
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
+    }
+
+    .button-container {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .button-container button {
+      background-color: #c40000;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .button-container button:hover {
+      background-color: #ff1a1a;
+    }
+
+    @media (max-width: 768px) {
+      .gallery-card img {
+        max-height: 300px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>🏋️‍♀️ Gym Gallery - Moments in Motion</header>
+
+  <div class="gallery-section">
+    <button class="arrow-btn arrow-left" onclick="changeSlide(-1)">&#10094;</button>
+
+    <div class="card-slider" id="cardSlider">
+      <div class="gallery-card">
+        <img src="https://via.placeholder.com/1000x500?text=Member+Training" alt="Member Workout">
+        <div class="card-desc">Our champions pushing limits in our advanced training zones.</div>
+      </div>
+      <div class="gallery-card">
+        <img src="https://via.placeholder.com/1000x500?text=Office+Interior" alt="Gym Office">
+        <div class="card-desc">Welcome to our premium gym office - meet & greet in style.</div>
+      </div>
+      <div class="gallery-card">
+        <img src="https://via.placeholder.com/1000x500?text=Gym+Interior+Design" alt="Gym Interior">
+        <div class="card-desc">High-end interiors that match your intensity and energy.</div>
+      </div>
+    </div>
+
+    <button class="arrow-btn arrow-right" onclick="changeSlide(1)">&#10095;</button>
+
+    <div class="dots" id="dotsContainer"></div>
+  </div>
+
+  <div class="marquee">
+    <span>💪 Fuel your ambition. Every rep counts. Your transformation starts here! 💪</span>
+  </div>
+
+  <div class="button-container">
+    <button onclick="window.location.href='index.html'">⬅ Back to Main Page</button>
+  </div>
+
+  <script>
+    const slider = document.getElementById("cardSlider");
+    const dotsContainer = document.getElementById("dotsContainer");
+    const cards = document.querySelectorAll(".gallery-card");
+    let currentIndex = 0;
+
+    function updateSlider() {
+      slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+      const dots = document.querySelectorAll(".dot");
+      dots.forEach((dot, i) => {
+        dot.classList.toggle("active", i === currentIndex);
+      });
+    }
+
+    function changeSlide(dir) {
+      currentIndex += dir;
+      if (currentIndex >= cards.length) currentIndex = 0;
+      if (currentIndex < 0) currentIndex = cards.length - 1;
+      updateSlider();
+    }
+
+    // Add Dots
+    cards.forEach((_, i) => {
+      const dot = document.createElement("span");
+      dot.className = "dot";
+      if (i === 0) dot.classList.add("active");
+      dot.onclick = () => {
+        currentIndex = i;
+        updateSlider();
+      };
+      dotsContainer.appendChild(dot);
+    });
+
+    // Auto-slide
+    setInterval(() => {
+      changeSlide(1);
+    }, 6000);
+  </script>
+
+</body>
+</html>

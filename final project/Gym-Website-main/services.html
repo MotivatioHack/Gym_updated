@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Gym Membership Plans</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #000;
+      color: white;
+      overflow-x: hidden;
+    }
+
+    header {
+      background-color: #e60000;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    .slider-container {
+      max-width: 100%;
+      overflow: hidden;
+      margin: 30px auto;
+      background: #111;
+      border-radius: 15px;
+      box-shadow: 0 4px 20px rgba(255, 0, 0, 0.4);
+    }
+
+    .slides {
+  display: flex;
+  width: calc(100% * 6); /* 3 original + 3 duplicates */
+  animation: scrollSlider 30s linear infinite;
+}
+    .slide {
+      min-width: 100%;
+      box-sizing: border-box;
+      padding: 40px 20px;
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    .slide i {
+      font-size: 40px;
+      color: #e60000;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .slide h2 {
+      margin: 10px 0;
+    }
+
+    .basic h2 {
+      color: gold;
+      font-weight: 600;
+    }
+
+    .premium h2 {
+      color: gold;
+      font-weight: 700;
+    }
+
+    .elite h2 {
+      color: gold;
+      font-weight: 800;
+    }
+
+    .price-badge {
+      background-color: gold;
+      color: black;
+      font-weight: bold;
+      display: inline-block;
+      padding: 8px 16px;
+      border-radius: 25px;
+      font-size: 16px;
+      margin-bottom: 15px;
+    }
+
+    .slide p {
+      font-size: 18px;
+      max-width: 700px;
+      margin: 10px auto;
+      line-height: 1.5;
+    }
+@keyframes scrollSlider {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); } /* smoothly slides 3 of 6 slides (50%) */
+}
+
+    .comparison-table {
+      max-width: 1000px;
+      margin: 40px auto;
+      border-collapse: collapse;
+      font-size: 16px;
+      box-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
+    }
+
+    .comparison-table th,
+    .comparison-table td {
+      border: 1px solid #444;
+      padding: 12px 15px;
+      text-align: center;
+    }
+
+    .comparison-table th {
+      background-color: #e60000;
+    }
+
+    .comparison-table td {
+      background-color: #111;
+    }
+
+    .highlight {
+      color: gold;
+      font-weight: bold;
+    }
+
+    .button-container {
+      text-align: center;
+      margin: 40px;
+    }
+
+    .button-container button {
+      background-color: #e60000;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .button-container button:hover {
+      background-color: #ff1a1a;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .slide p {
+        font-size: 16px;
+        padding: 0 10px;
+      }
+
+      .price-badge {
+        font-size: 14px;
+      }
+
+      .comparison-table {
+        font-size: 14px;
+        width: 95%;
+      }
+
+      header {
+        font-size: 22px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .slide h2 {
+        font-size: 20px;
+      }
+
+      .slide p {
+        font-size: 14px;
+      }
+
+      .comparison-table th,
+      .comparison-table td {
+        padding: 8px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>💥 Gym Membership Plans</header>
+
+  <!-- SLIDER -->
+  <div class="slider-container">
+    <div class="slides">
+      <!-- Slide 1 -->
+      <div class="slide basic">
+        <i class="fas fa-dumbbell"></i>
+        <h2>Basic Membership</h2>
+        <div class="price-badge">₹999/month</div>
+        <p>Access to cardio zone, weight floor, and group classes. Ideal for beginners starting their journey.</p>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="slide premium">
+        <i class="fas fa-running"></i>
+        <h2>Premium Membership</h2>
+        <div class="price-badge">₹1499/month</div>
+        <p>Everything in Basic + personal trainer support, advanced workout equipment, and steam room access.</p>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="slide elite">
+        <i class="fas fa-fire"></i>
+        <h2>Elite Membership</h2>
+        <div class="price-badge">₹2499/month</div>
+        <p>All-access VIP pass: unlimited PT, nutritionist, spa zone, recovery room, and VIP lounge access.</p>
+      </div>
+
+      <!-- Duplicate Slides -->
+      <div class="slide basic">
+        <i class="fas fa-dumbbell"></i>
+        <h2>Basic Membership</h2>
+        <div class="price-badge">₹999/month</div>
+        <p>Access to cardio zone, weight floor, and group classes. Ideal for beginners starting their journey.</p>
+      </div>
+
+      <div class="slide premium">
+        <i class="fas fa-running"></i>
+        <h2>Premium Membership</h2>
+        <div class="price-badge">₹1499/month</div>
+        <p>Everything in Basic + personal trainer support, advanced workout equipment, and steam room access.</p>
+      </div>
+
+      <div class="slide elite">
+        <i class="fas fa-fire"></i>
+        <h2>Elite Membership</h2>
+        <div class="price-badge">₹2499/month</div>
+        <p>All-access VIP pass: unlimited PT, nutritionist, spa zone, recovery room, and VIP lounge access.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- COMPARISON TABLE -->
+  <table class="comparison-table">
+    <tr>
+      <th>Features</th>
+      <th>Basic</th>
+      <th>Premium</th>
+      <th>Elite</th>
+    </tr>
+    <tr>
+      <td>Cardio Access</td>
+      <td class="highlight">✔</td>
+      <td class="highlight">✔</td>
+      <td class="highlight">✔</td>
+    </tr>
+    <tr>
+      <td>Free Weights & Machines</td>
+      <td class="highlight">✔</td>
+      <td class="highlight">✔</td>
+      <td class="highlight">✔</td>
+    </tr>
+    <tr>
+      <td>Group Classes</td>
+      <td class="highlight">✔</td>
+      <td class="highlight">✔</td>
+      <td class="highlight">✔</td>
+    </tr>
+    <tr>
+      <td>Personal Trainer</td>
+      <td>✖</td>
+      <td class="highlight">✔</td>
+      <td class="highlight">✔</td>
+    </tr>
+    <tr>
+      <td>Nutrition Plan</td>
+      <td>✖</td>
+      <td>✖</td>
+      <td class="highlight">✔</td>
+    </tr>
+    <tr>
+      <td>Spa & Recovery</td>
+      <td>✖</td>
+      <td>✖</td>
+      <td class="highlight">✔</td>
+    </tr>
+  </table>
+
+  <!-- BACK BUTTON -->
+  <div class="button-container">
+    <button onclick="window.location.href='index.html'">⬅ Back to Main Page</button>
+  </div>
+
+</body>
+</html>

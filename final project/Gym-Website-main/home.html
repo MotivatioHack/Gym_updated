@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Gym Facilities</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #1a1a1a;
+      color: white;
+    }
+
+    .header {
+      background-color: #000;
+      color: #e60000;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .header h1 {
+      margin: 0;
+    }
+
+    .slider {
+      position: relative;
+      width: 100%;
+      max-width: 1000px;
+      height: 400px;
+      margin: 40px auto;
+      overflow: hidden;
+      border-radius: 15px;
+      box-shadow: 0 4px 20px rgba(230, 0, 0, 0.4);
+    }
+
+    .slides {
+      display: flex;
+      width: 300%;
+      height: 100%;
+      animation: slideAnimation 15s infinite;
+    }
+
+    .slide {
+      width: 100%;
+      flex-shrink: 0;
+      position: relative;
+    }
+
+    .slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .slide-caption {
+      position: absolute;
+      bottom: 20px;
+      left: 30px;
+      color: white;
+      background: rgba(230, 0, 0, 0.85);
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-size: 24px;
+      animation: fadeIn 2s ease-in;
+    }
+
+    @keyframes slideAnimation {
+      0%   { transform: translateX(0%); }
+      33%  { transform: translateX(0%); }
+      36%  { transform: translateX(-100%); }
+      66%  { transform: translateX(-100%); }
+      69%  { transform: translateX(-200%); }
+      99%  { transform: translateX(-200%); }
+      100% { transform: translateX(0%); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .facilities {
+      padding: 20px;
+      text-align: center;
+    }
+
+    .facilities h2 {
+      color: #e60000;
+    }
+
+    .facility-imgs {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
+    .facility-imgs div {
+      margin: 10px;
+    }
+
+    .facility-imgs img {
+      width: 300px;
+      height: 200px;
+      border-radius: 10px;
+      border: 2px solid #e60000;
+    }
+
+    .quotes {
+      margin-top: 40px;
+      text-align: center;
+    }
+
+    .quotes h3 {
+      color: #e60000;
+    }
+
+    .button-container {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .button-container button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #e60000;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .button-container button:hover {
+      background-color: #ff1a1a;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <h1>Welcome to Our Gym</h1>
+    <p style="font-size: 18px; color: #fff;">Train Hard. Stay Strong. Live Healthy.</p>
+  </div>
+
+  <!-- SLIDER SECTION -->
+  <div class="slider">
+    <div class="slides">
+      <div class="slide">
+        <img src="https://via.placeholder.com/1000x400?text=Modern+Fitness+Machines" alt="Fitness Machines">
+        <div class="slide-caption">Top-notch Fitness Equipment</div>
+      </div>
+      <div class="slide">
+        <img src="https://via.placeholder.com/1000x400?text=Personal+Training+Sessions" alt="Personal Training">
+        <div class="slide-caption">Expert Personal Trainers</div>
+      </div>
+      <div class="slide">
+        <img src="https://via.placeholder.com/1000x400?text=Group+Fitness+Classes" alt="Group Classes">
+        <div class="slide-caption">Fun Group Classes</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FACILITIES SECTION -->
+  <div class="facilities">
+    <h2>Our Facilities</h2>
+
+    <div class="facility-imgs">
+      <div>
+        <img src="https://via.placeholder.com/300x200?text=Cardio+Zone" alt="Cardio Zone">
+      </div>
+      <div>
+        <img src="https://via.placeholder.com/300x200?text=Weight+Lifting" alt="Weight Lifting">
+      </div>
+      <div>
+        <img src="https://via.placeholder.com/300x200?text=Yoga+Room" alt="Yoga Room">
+      </div>
+    </div>
+  </div>
+
+  <!-- QUOTES SECTION -->
+  <div class="quotes">
+    <h3>"The body achieves what the mind believes."</h3>
+    <h3>"Push yourself because no one else is going to do it for you."</h3>
+  </div>
+
+  <!-- BUTTON SECTION -->
+  <div class="button-container">
+    <button onclick="window.location.href='index.html'">⬅ Back to Main Page</button>
+  </div>
+
+</body>
+</html>

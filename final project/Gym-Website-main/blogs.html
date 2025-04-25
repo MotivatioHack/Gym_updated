@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Gym Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #000;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    header {
+      background-color: #e60000;
+      color: #fff;
+      text-align: center;
+      padding: 25px;
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    .slider-container {
+      position: relative;
+      max-width: 1000px;
+      margin: 40px auto;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 119, 255, 0.3);
+      background: #111;
+    }
+
+    .slides {
+      display: flex;
+      transition: transform 0.8s ease-in-out;
+    }
+
+    .slide {
+      min-width: 100%;
+      box-sizing: border-box;
+      padding: 40px 30px;
+      text-align: center;
+    }
+
+    .slide img {
+      width: 100%;
+      max-height: 300px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      animation: fadeIn 1s ease;
+    }
+
+    .slide h2 {
+      color: #00bfff;
+      margin-bottom: 10px;
+      font-size: 26px;
+      animation: slideInUp 1s ease-in-out;
+    }
+
+    .slide p {
+      font-size: 18px;
+      color: #ddd;
+      animation: fadeInUp 1s ease-in-out;
+    }
+
+    .arrows {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-50%);
+    }
+
+    .arrow {
+      background-color: transparent;
+      border: 2px solid red;
+      color: red;
+      font-size: 28px;
+      cursor: pointer;
+      padding: 8px 15px;
+      transition: 0.3s;
+      border-radius: 50%;
+      margin: 0 10px;
+    }
+
+    .arrow:hover {
+      background-color: red;
+      color: white;
+    }
+
+    .button-container {
+      text-align: center;
+      margin: 40px;
+    }
+
+    .button-container button {
+      background-color: #e60000;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .button-container button:hover {
+      background-color: #ff1a1a;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+
+    @keyframes slideInUp {
+      from {transform: translateY(50px); opacity: 0;}
+      to {transform: translateY(0); opacity: 1;}
+    }
+
+    @keyframes fadeInUp {
+      from {transform: translateY(30px); opacity: 0;}
+      to {transform: translateY(0); opacity: 1;}
+    }
+
+    @media (max-width: 768px) {
+      .slide h2 {
+        font-size: 20px;
+      }
+
+      .slide p {
+        font-size: 16px;
+      }
+
+      .arrow {
+        font-size: 22px;
+        padding: 6px 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>🏋️‍♂️ Gym Blog - Stay Fit. Stay Inspired.</header>
+
+<div class="slider-container">
+  <div class="slides" id="slides">
+    
+    <!-- Blog 1 -->
+    <div class="slide">
+      <img src="https://via.placeholder.com/800x300?text=Morning+Workout+Vibes" alt="Blog 1">
+      <h2>5 Morning Routines That Boost Energy</h2>
+      <p>Start your day with powerful moves and habits that awaken your body and mind. Stretch, hydrate, and smash your goals!</p>
+    </div>
+
+    <!-- Blog 2 -->
+    <div class="slide">
+      <img src="https://via.placeholder.com/800x300?text=Gymnastics+Training" alt="Blog 2">
+      <h2>Gymnastics for Full-Body Strength</h2>
+      <p>Discover how gymnastic workouts can develop strength, balance, and agility in ways traditional training can't.</p>
+    </div>
+
+    <!-- Blog 3 -->
+    <div class="slide">
+      <img src="https://via.placeholder.com/800x300?text=Post+Workout+Recovery" alt="Blog 3">
+      <h2>Recovery: The Secret to Progress</h2>
+      <p>Rest and nutrition are just as vital as workouts. Learn how to refuel and repair for sustainable gains.</p>
+    </div>
+
+  </div>
+
+  <!-- Arrows -->
+  <div class="arrows">
+    <span class="arrow" onclick="prevSlide()">&#10094;</span>
+    <span class="arrow" onclick="nextSlide()">&#10095;</span>
+  </div>
+</div>
+
+<!-- Back Button -->
+<div class="button-container">
+  <button onclick="window.location.href='index.html'">⬅ Back to Main Page</button>
+</div>
+
+<script>
+  let currentSlide = 0;
+  const slides = document.getElementById("slides");
+  const totalSlides = slides.children.length;
+
+  function showSlide(index) {
+    if (index >= totalSlides) currentSlide = 0;
+    else if (index < 0) currentSlide = totalSlides - 1;
+    else currentSlide = index;
+
+    slides.style.transform = `translateX(-${currentSlide * 100}%)`;
+  }
+
+  function nextSlide() {
+    showSlide(currentSlide + 1);
+  }
+
+  function prevSlide() {
+    showSlide(currentSlide - 1);
+  }
+
+  // Auto slide (optional)
+  setInterval(() => {
+    nextSlide();
+  }, 8000); // 8 seconds
+</script>
+
+</body>
+</html>

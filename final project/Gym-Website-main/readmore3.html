@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Weight Lifting</title>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Anton', sans-serif;
+      background: linear-gradient(to right, #0f0f0f, #1a1a1a);
+      color: #fff;
+    }
+
+    header {
+      height: 90vh;
+      background: url('https://images.unsplash.com/photo-1605296867304-46d5465a13f1') center/cover no-repeat;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+    }
+
+    .hero {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      color: #00BFFF;
+    }
+
+    .hero h1 {
+      font-size: 4rem;
+      letter-spacing: 3px;
+      animation: dropIn 1.2s ease-out;
+    }
+
+    .hero p {
+      font-size: 1.5rem;
+      color: #f0e68c;
+      margin-top: 10px;
+      animation: fadeUp 1.5s ease-out;
+    }
+
+    @keyframes dropIn {
+      from { transform: translateY(-60px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    @keyframes fadeUp {
+      from { transform: translateY(60px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 60px 20px;
+    }
+
+    .container h2 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 40px;
+      color: #00BFFF;
+      border-bottom: 3px solid #FFD700;
+      display: inline-block;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+
+    .card {
+      background: #111;
+      padding: 20px;
+      border-radius: 15px;
+      border: 1px solid #00BFFF;
+      box-shadow: 0 0 15px rgba(0, 191, 255, 0.4);
+      transition: transform 0.4s ease, outline 0.3s ease;
+      transform: translateY(50px);
+      opacity: 0;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      outline: 2px solid brown;
+    }
+
+    .card.show {
+      opacity: 1;
+      transform: translateY(0);
+      transition: all 0.6s ease;
+    }
+
+    .interactive {
+      text-align: center;
+      margin-top: 60px;
+    }
+
+    .interactive h3 {
+      color: #FFD700;
+      margin-bottom: 15px;
+    }
+
+    .counter, .timer {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #00BFFF;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 1rem;
+      font-weight: bold;
+      background: #00BFFF;
+      border: none;
+      color: #000;
+      border-radius: 10px;
+      cursor: pointer;
+      margin: 10px;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background: #0090ff;
+    }
+
+    iframe {
+      margin-top: 40px;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(255,255,255,0.2);
+      width: 100%;
+      max-width: 700px;
+      height: 400px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      font-size: 0.9rem;
+      color: #ccc;
+      background-color: #000;
+      margin-top: 60px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="hero">
+    <h1>Weight Lifting</h1>
+    <p>Build Strength • Power • Endurance</p>
+  </div>
+</header>
+
+<section class="container">
+  <h2>Essentials of Weight Lifting</h2>
+  <div class="cards">
+    <div class="card">1. Focus on proper form over heavy loads.</div>
+    <div class="card">2. Use progressive overload to build strength steadily.</div>
+    <div class="card">3. Warm-up before every session to avoid injuries.</div>
+    <div class="card">4. Compound movements are key: squats, deadlifts, presses.</div>
+    <div class="card">5. Balance pushing and pulling exercises.</div>
+    <div class="card">6. Rest 48 hours between major muscle group training.</div>
+    <div class="card">7. Increase weights only when reps are clean and controlled.</div>
+    <div class="card">8. Prioritize core strength for overall lifting stability.</div>
+    <div class="card">9. Nutrition is critical—protein fuels growth and repair.</div>
+    <div class="card">10. Track progress to stay motivated and consistent.</div>
+    <div class="card">11. Sleep and recovery are just as important as lifting.</div>
+    <div class="card">12. Hydration impacts endurance and recovery.</div>
+    <div class="card">13. Use variations like supersets for added intensity.</div>
+    <div class="card">14. Never skip leg day—lower body strength is essential.</div>
+    <div class="card">15. Include mobility work to prevent stiffness.</div>
+    <div class="card">16. Learn the difference between muscle fatigue and injury.</div>
+    <div class="card">17. Train smart: listen to your body’s signals.</div>
+    <div class="card">18. Stay disciplined; results take time and consistency.</div>
+  </div>
+
+  <div class="interactive">
+    <h3>Live Rep Counter</h3>
+    <div class="counter" id="repCount">0</div>
+    <button onclick="increaseRep()">+ Rep</button>
+    <button onclick="resetRep()">Reset</button>
+
+    <h3>Workout Timer (sec)</h3>
+    <div class="timer" id="timer">0</div>
+    <button onclick="startTimer()">Start</button>
+    <button onclick="stopTimer()">Stop</button>
+    <button onclick="resetTimer()">Reset</button>
+
+    <h3>Watch a Guided Workout</h3>
+    <iframe src="https://www.youtube.com/embed/dJlFmxiL11s" allowfullscreen></iframe>
+  </div>
+</section>
+
+<footer>
+  &copy; 2025 Weight Lifting Guide | Lift Strong. Live Strong.
+</footer>
+
+<script>
+  // Scroll animation
+  const cards = document.querySelectorAll('.card');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+      }
+    });
+  }, { threshold: 0.15 });
+  cards.forEach(card => observer.observe(card));
+
+  // Rep counter logic
+  let reps = 0;
+  function increaseRep() {
+    reps++;
+    document.getElementById('repCount').textContent = reps;
+  }
+  function resetRep() {
+    reps = 0;
+    document.getElementById('repCount').textContent = reps;
+  }
+
+  // Timer logic
+  let time = 0;
+  let timerInterval;
+  function startTimer() {
+    if (!timerInterval) {
+      timerInterval = setInterval(() => {
+        time++;
+        document.getElementById('timer').textContent = time;
+      }, 1000);
+    }
+  }
+  function stopTimer() {
+    clearInterval(timerInterval);
+    timerInterval = null;
+  }
+  function resetTimer() {
+    stopTimer();
+    time = 0;
+    document.getElementById('timer').textContent = time;
+  }
+</script>
+
+</body>
+</html>
